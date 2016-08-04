@@ -421,7 +421,6 @@ html,body {
     bottom: 0;
     left: 10px;
     right: 10px;
-    border: 1px solid #ddd;
     overflow: auto;
 }
 .datagrid .datagrid-content .datagrid-items .datagrid-item {
@@ -443,12 +442,13 @@ html,body {
     color: #555555;
     border-bottom: 1px solid #ddd;
 }
-.datagrid .datagrid-content .datagrid-items .datagrid-item > span:last-child {
-    border-right: none;
+.datagrid .datagrid-content .datagrid-items .datagrid-item > span:first-child {
+    border-left: 1px solid #ddd;
 }
 .datagrid .datagrid-content .datagrid-items .datagrid-title {
     width: 100%;
     border-bottom: 3px solid #dddddd;
+    border-top: 1px solid #dddddd;
 }
 .datagrid .datagrid-content .datagrid-items .datagrid-title > span {
     color: #333333;
