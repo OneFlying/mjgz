@@ -53,18 +53,18 @@ public class Client {
          		  msg.setObject(heartBeatReq);
          		  String json = JsonUtils.ObjToJson(msg);*/
          		   //扫描
-         		  /*Msg msg  = new Msg();
+         		  Msg msg  = new Msg();
          		  msg.setId(MsgType.SAOMAXINXI);
          		  SaomiaoXinxiReq saomiaoXinxiReq = new SaomiaoXinxiReq();
          		  saomiaoXinxiReq.setId("1010101010");
          		  saomiaoXinxiReq.setName("张三");
          		  saomiaoXinxiReq.setNode("打磨");
          		  msg.setObject(saomiaoXinxiReq);
-         		  String json = JsonUtils.ObjToJson(msg);*/
-         		   //流程节点获取
-         		  Msg msg  = new Msg();
-         		  msg.setId(MsgType.LIUCHENGXINXI);
          		  String json = JsonUtils.ObjToJson(msg);
+         		   //流程节点获取
+         		  /*Msg msg  = new Msg();
+         		  msg.setId(MsgType.LIUCHENGXINXI);
+         		  String json = JsonUtils.ObjToJson(msg);*/
          		  ch.writeAndFlush(json+"\r\n");
          	   }  
          	  }, 1,3, TimeUnit.SECONDS); 

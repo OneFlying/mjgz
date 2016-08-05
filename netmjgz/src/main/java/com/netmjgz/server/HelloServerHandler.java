@@ -84,11 +84,11 @@ public class HelloServerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
     	
-        System.out.println("RamoteAddress : " + ctx.channel().remoteAddress()
+        /*System.out.println("RamoteAddress : " + ctx.channel().remoteAddress()
                 + " active !");
 
         ctx.writeAndFlush("Welcome to "
-                + InetAddress.getLocalHost().getHostName() + " service!\n");
+                + InetAddress.getLocalHost().getHostName() + " service!\n");*/
 
         super.channelActive(ctx);
     }
