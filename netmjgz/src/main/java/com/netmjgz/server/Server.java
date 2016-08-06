@@ -32,7 +32,7 @@ public class Server {
             ChannelFuture f = b.bind(portNumber).sync();
             // 监听服务器关闭监听
             f.channel().closeFuture().sync();
-
+            System.out.println("---------服务器已经启动------------");
             // 可以简写为
             /* b.bind(portNumber).sync().channel().closeFuture().sync(); */
         } finally {

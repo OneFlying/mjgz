@@ -87,8 +87,12 @@ public class HelloServerHandler extends SimpleChannelInboundHandler<String> {
         /*System.out.println("RamoteAddress : " + ctx.channel().remoteAddress()
                 + " active !");
 
+<<<<<<< .mine
+        
+=======
         ctx.writeAndFlush("Welcome to "
                 + InetAddress.getLocalHost().getHostName() + " service!\n");*/
+>>>>>>> .r14
 
         super.channelActive(ctx);
     }
