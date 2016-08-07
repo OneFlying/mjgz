@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,8 @@ import com.yf.dao.SearchEntity;
 import com.yf.model.Material;
 import com.yf.utils.StringUtils;
 
+@Controller
+@RequestMapping("/material")
 public class MaterialController {
 
 	@Resource(name="materialDao")

@@ -22,5 +22,13 @@ public class IndexController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
+    
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public ModelAndView test(HttpServletRequest request) {
+        logger.info("welcome");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("test");
+        return modelAndView;
+    }
 
 }
