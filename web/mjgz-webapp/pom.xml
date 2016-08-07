@@ -8,6 +8,13 @@
   <name>mjgz-webapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+  
+  		<!-- 配置生成一维码 -->
+  		<dependency>
+		    <groupId>net.sf.barcode4j</groupId>
+		    <artifactId>barcode4j</artifactId>
+		    <version>2.0</version>
+		</dependency>
   		<!-- 二维码生成工具 -->
   		<dependency>
 		    <groupId>com.google.zxing</groupId>
