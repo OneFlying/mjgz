@@ -1,5 +1,8 @@
 package com.yf.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.yf.annotation.Column;
 import com.yf.annotation.Table;
 
@@ -8,7 +11,7 @@ import com.yf.annotation.Table;
  * @author abc
  *
  */
-@Table(name="order")
+@Table(name="mjorder")
 public class Order {
 
 	/**订单id*/
@@ -20,11 +23,41 @@ public class Order {
 	/**二维码*/
 	private String code;
 	
-	/**预警时间*/
-	private String warningTime;
+	/**
+	 * 订单状态
+	 */
+	private int status;
 	
-	/**生产节点*/
+	/**上一次的节点名称*/
 	private String node;
+	
+	private List<OrderNode> orderNodes = new ArrayList<OrderNode>();
+	
+	public List<OrderNode> getOrderNodes() {
+		return orderNodes;
+	}
+
+	public void setOrderNodes(List<OrderNode> orderNodes) {
+		this.orderNodes = orderNodes;
+	}
+
+	@Column(name="node")
+	public String getNode() {
+		return node;
+	}
+
+	public void setNode(String node) {
+		this.node = node;
+	}
+
+	@Column(name="status")
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 	@Column(name="id")
 	public String getId() {
@@ -52,24 +85,5 @@ public class Order {
 	public void setCode(String code) {
 		this.code = code;
 	}
-
-	@Column(name="warningTime")
-	public String getWarningTime() {
-		return warningTime;
-	}
-
-	public void setWarningTime(String warningTime) {
-		this.warningTime = warningTime;
-	}
-
-	@Column(name="node")
-	public String getNode() {
-		return node;
-	}
-
-	public void setNode(String node) {
-		this.node = node;
-	}
-	
 	
 }

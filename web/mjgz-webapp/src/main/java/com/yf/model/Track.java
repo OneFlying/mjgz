@@ -16,7 +16,7 @@ public class Track {
 	private String id;
 
 	/** 订单id */
-	private String orderId;
+//	private String orderId;
 
 	/** 员工名称 */
 	private String workName;
@@ -47,14 +47,14 @@ public class Track {
 		this.id = id;
 	}
 
-	@Column(name = "orderId")
-	public String getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
-	}
+//	@Column(name = "orderId")
+//	public String getOrderId() {
+//		return orderId;
+//	}
+//
+//	public void setOrderId(String orderId) {
+//		this.orderId = orderId;
+//	}
 
 	@Column(name = "workName")
 	public String getWorkName() {
