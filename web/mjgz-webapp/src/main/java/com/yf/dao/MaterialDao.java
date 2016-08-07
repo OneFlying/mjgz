@@ -37,9 +37,9 @@ public class MaterialDao extends DaoAdapter{
 		
 		try {
 			
-			String sql = "insert into order values(?,?,?,?,?,?,?)";
+			String sql = "insert material values(?,?,?,?,?,?,?)";
 			
-			return super.getJdbcTemplate().queryForInt(sql,material.getId(),material.getNum(),material.getName(),material.getStantard(),material.getMaterial(),material.getLife(),material.getDrawing());
+			return super.getJdbcTemplate().update(sql,material.getId(),material.getNum(),material.getName(),material.getStantard(),material.getMaterial(),material.getLife(),material.getDrawing());
 			
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -119,4 +119,16 @@ public class ProductionDao extends DaoAdapter{
 			return null;
 		}
 	}
+	
+	public List<ProductionNode> getAll(){
+		try {
+			
+			String sql = "select * from productionnode";
+			
+			return super.getJdbcTemplate().query(sql, proRowMapper);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
 }

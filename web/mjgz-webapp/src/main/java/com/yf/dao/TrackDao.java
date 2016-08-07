@@ -32,9 +32,9 @@ public class TrackDao extends DaoAdapter{
 		
 		try {
 			
-			String sql = "insert into track values(?,?,?,?,?,?)";
+			String sql = "insert into track values(?,?,?,?,?)";
 			
-			return super.getJdbcTemplate().update(sql,track.getId(),track.getOrderId(),track.getWorkName(),track.getNode(),track.getCode(),track.getTime());
+			return super.getJdbcTemplate().update(sql,track.getId(),track.getWorkName(),track.getNode(),track.getCode(),track.getTime());
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -46,9 +46,9 @@ public class TrackDao extends DaoAdapter{
 		
 		try {
 			
-			String sql = "update track set orderId=?,workName=?,node=?,code=?,time=? where id = ?";
+			String sql = "update track set workName=?,node=?,code=?,time=? where id = ?";
 			
-			return super.getJdbcTemplate().update(sql,track.getOrderId(),track.getWorkName(),track.getNode(),track.getCode(),track.getTime(),track.getId());
+			return super.getJdbcTemplate().update(sql,track.getWorkName(),track.getNode(),track.getCode(),track.getTime(),track.getId());
 			
 		} catch (Exception e) {
 			// TODO: handle exception

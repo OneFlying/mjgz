@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.yf.constant.OrderConstant;
 import com.yf.model.Order;
 import com.yf.utils.RowMapperUtil;
 
@@ -26,19 +27,16 @@ public class OrderDao extends DaoAdapter{
 				
 				return (Order)RowMapperUtil.getRowMapper(Order.class, rs, "");
 			}
-		
-		
 		};
-		
 	}
 	
 	public  int insertOrder(Order order){
 		
 		try {
 			
-			String sql = "insert into order values(?,?,?,?,?)";
+			String sql = "insert into mjorder values(?,?,?,?,?)";
 			
-			return super.getJdbcTemplate().queryForInt(sql,order.getId(),order.getMaterialId(),order.getCode(),order.getWarningTime(),order.getNode());
+			return super.getJdbcTemplate().update(sql,order.getId(),order.getMaterialId(),order.getCode(),order.getStatus(),order.getNode());
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -50,10 +48,24 @@ public class OrderDao extends DaoAdapter{
 	public int updateOrder(Order order){
 		try {
 			
-			String sql = "update order set materialId=?,code=?,warningTime=?,node=? where id = ?";
+			String sql = "update mjorder set materialId=?,code=?,status=?,node=? where id = ?";
 			
-			return super.getJdbcTemplate().update(sql,order.getMaterialId(),order.getCode(),order.getWarningTime(),order.getNode(),order.getId());
+			return super.getJdbcTemplate().update(sql,order.getMaterialId(),order.getCode(),order.getStatus(),order.getNode(),order.getId());
 			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return 0;
+		}
+	}
+	
+	public int updateOrderCurrentNode(String orderId,String node){
+		
+		try {
+			
+			String sql = "update mjorder set node=? where id=?";
+			
+			return super.getJdbcTemplate().update(sql,node,orderId);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -65,7 +77,7 @@ public class OrderDao extends DaoAdapter{
 		
 		try {
 			
-			String sql = "delete from order where id = ?";
+			String sql = "delete from mjorder where id = ?";
 			
 			return super.getJdbcTemplate().batchUpdate(sql,new BatchPreparedStatementSetter() {
 				
@@ -91,7 +103,7 @@ public class OrderDao extends DaoAdapter{
 		
 		try {
 			
-			String sql = "select * from order where id = ?";
+			String sql = "select * from mjorder where id = ?";
 			
 			return super.getJdbcTemplate().queryForObject(sql, orderRowMapper,id);
 			
@@ -120,5 +132,24 @@ public class OrderDao extends DaoAdapter{
 			// TODO: handle exception
 			return null;
 		}		
+	}
+	
+	/**
+	 * 获取所有正在被执行的订单
+	 * @return
+	 */
+	public List<Order> getOrderExcute(){
+		
+		try {
+			
+			String sql = "select * from mjorder where status = ?";
+			
+			return super.getJdbcTemplate().query(sql, orderRowMapper,OrderConstant.ORDER_EXCUTING);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+		
 	}
 }
