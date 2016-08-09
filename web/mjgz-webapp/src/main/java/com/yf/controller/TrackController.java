@@ -185,7 +185,7 @@ public class TrackController {
 	
 	@RequestMapping(value="/byid",method=RequestMethod.GET)
 	@ResponseBody
-	public ModelMap getUserById(String id){
+	public ModelMap getTrackcById(String id){
 		
 		ModelMap modelMap = new ModelMap();
 		
@@ -208,7 +208,7 @@ public class TrackController {
 	
 	@RequestMapping(value="/getall",method=RequestMethod.GET)
 	@ResponseBody
-	public ModelMap getAllUser(int page,int rows){
+	public ModelMap getAllTrack(int page,int rows){
 		
 		ModelMap modelMap = new ModelMap();
 		
@@ -216,11 +216,12 @@ public class TrackController {
 		searchEntity.addResultColumn("*");
 		searchEntity.setPage(page, rows);
 		
-		List<Track> users = trackDao.getAllTracks(searchEntity);
+		List<Track> tracks = trackDao.getAllTracks(searchEntity);
 		
-		if(users != null){
+		if(tracks != null){
 			modelMap.put("success", true);
-			modelMap.put("rows", users);
+			modelMap.put("rows", tracks);
+			modelMap.put("total", searchEntity.getTotal());
 		}else{
 			modelMap.put("success", false);
 		}

@@ -122,11 +122,12 @@ public class ProductNodeController {
 		searchEntity.addResultColumn("*");
 		searchEntity.setPage(page, rows);
 		
-		List<ProductionNode> users = productionDao.getAllProduction(searchEntity);
+		List<ProductionNode> nodes = productionDao.getAllProduction(searchEntity);
 		
-		if(users != null){
+		if(nodes != null){
 			modelMap.put("success", true);
-			modelMap.put("rows", users);
+			modelMap.put("rows", nodes);
+			modelMap.put("total", searchEntity.getTotal());
 		}else{
 			modelMap.put("success", false);
 		}

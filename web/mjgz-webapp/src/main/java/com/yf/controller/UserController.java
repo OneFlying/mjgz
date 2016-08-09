@@ -125,6 +125,7 @@ public class UserController {
 		if(users != null){
 			modelMap.put("success", true);
 			modelMap.put("rows", users);
+			modelMap.put("total", searchEntity.getTotal());
 		}else{
 			modelMap.put("success", false);
 		}

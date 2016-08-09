@@ -139,7 +139,7 @@ public class OrderController {
 	
 	@RequestMapping(value="/getall",method=RequestMethod.GET)
 	@ResponseBody
-	public ModelMap getAllUser(int page,int rows){
+	public ModelMap getAllOrder(int page,int rows){
 		
 		ModelMap modelMap = new ModelMap();
 		
@@ -147,11 +147,12 @@ public class OrderController {
 		searchEntity.addResultColumn("*");
 		searchEntity.setPage(page, rows);
 		
-		List<Order> users = orderDao.getAllOrder(searchEntity);
+		List<Order> orders = orderDao.getAllOrder(searchEntity);
 		
-		if(users != null){
+		if(orders != null){
 			modelMap.put("success", true);
-			modelMap.put("rows", users);
+			modelMap.put("rows", orders);
+			modelMap.put("total", searchEntity.getTotal());
 		}else{
 			modelMap.put("success", false);
 		}
