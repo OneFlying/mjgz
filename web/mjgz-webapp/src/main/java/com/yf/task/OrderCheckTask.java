@@ -25,11 +25,12 @@ public class OrderCheckTask {
 	@Resource(name="orderNodeDao")
 	private OrderNodeDao orderNodeDao;
 	
+
 	/**
-	 * 定时检查订单是否超时
+	 * 定时检查订单流程是否超时
 	 */
 	@Scheduled(cron="0/5 * * * * ?") 
-	public void checkOrder(){
+	public void checkOrderNodeIsOverTime(){
 		
 		//获取所有正在被执行的订单
 		List<Order> orders = orderDao.getOrderExcute();
