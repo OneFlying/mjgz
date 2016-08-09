@@ -39,9 +39,9 @@ public class UserDao extends DaoAdapter{
 		
 		try {
 			
-			String sql = "insert into user values(?,?,?,?)";
+			String sql = "insert into user values(?,?,?,?,?)";
 			
-			return super.getJdbcTemplate().update(sql,user.getId(),user.getName(),user.getPhone(),user.getDuty());
+			return super.getJdbcTemplate().update(sql,user.getId(),user.getName(),user.getPhone(),user.getDuty(),user.getPasswd());
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -59,9 +59,9 @@ public class UserDao extends DaoAdapter{
 	public int updateUser(User user){
 		try {
 			
-			String sql = "update user set name=?,phone=?,duty=? where id=?";
+			String sql = "update user set name=?,phone=?,duty=?,passwd=? where id=?";
 			
-			return super.getJdbcTemplate().update(sql,user.getName(),user.getPhone(),user.getDuty(),user.getId());
+			return super.getJdbcTemplate().update(sql,user.getName(),user.getPhone(),user.getDuty(),user.getPasswd(),user.getId());
 			
 		} catch (Exception e) {
 			// TODO: handle exception
