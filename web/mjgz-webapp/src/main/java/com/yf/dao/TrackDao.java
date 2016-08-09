@@ -141,4 +141,21 @@ public class TrackDao extends DaoAdapter{
 		
 	}
 	
+	/**
+	 * 根据订单id获取追踪信息
+	 */
+	public List<Track> getTracksByOrderId(String orderId){
+		
+		try {
+			
+			String sql = "select * from track where code = ?";
+			
+			return super.getJdbcTemplate().query(sql, trackRowMapper,orderId);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+	
 }
