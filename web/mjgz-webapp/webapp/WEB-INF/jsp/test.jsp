@@ -17,13 +17,23 @@
     
     	function addMaterial(){
     		//添加订单
-    		/* var url = RESOUCE_SYSTEM_URL_JS+"/order/add";
+    		var url = RESOUCE_SYSTEM_URL_JS+"/order/add";
     		var arr = [];
     		var obj = {
-    				"nodeName":"123",
+    				"nodeName":"测试节点1",
+					"overtime":"132"
+					}
+    		var obj2 = {
+    				"nodeName":"测试节点2",
+					"overtime":"132"
+					}
+    		var obj3 = {
+    				"nodeName":"测试节点3",
 					"overtime":"132"
 					}
     		arr.push(obj);
+    		arr.push(obj2);
+    		arr.push(obj3);
     		var param = {
     				"materialId":"07c8c6bba00644e0b14ee94486bfa871",
     				"orderNodes": arr 				
@@ -38,8 +48,8 @@
     			success : function(data){
     				console.log(data);
     			}
-    		});  */
-    		 var url = RESOUCE_SYSTEM_URL_JS+"/productionnode/add";
+    		});
+    		 /* var url = RESOUCE_SYSTEM_URL_JS+"/productionnode/add";
      	
      		var param = {
      				"name":"fasdf"				
@@ -52,7 +62,7 @@
      			success : function(data){
      				console.log(data);
      			}
-     		});
+     		}); */
     		
     		
     		
