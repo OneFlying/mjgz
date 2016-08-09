@@ -50,7 +50,7 @@ public class OrderController {
 		
 		//测试生成条形码
 		String code = BarCodeUtil.creatTestBarCode(request, id);
-		order.setCode(code);
+		order.setCode(id);
 		
 		//添加订单节点 每个订单有多个流程节点
 		int total=0;

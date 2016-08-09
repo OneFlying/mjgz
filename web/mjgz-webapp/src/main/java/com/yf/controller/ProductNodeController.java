@@ -1,5 +1,6 @@
 package com.yf.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -142,12 +143,17 @@ public class ProductNodeController {
 	public ModelMap getAllProduction(HttpServletRequest request,HttpServletResponse response){
 		
 		ModelMap modelMap = new ModelMap();
+		List<String> res = new ArrayList<String>();
 		List<ProductionNode> nodes = productionDao.getAll();
+		
+		for(ProductionNode node : nodes){
+			res.add(node.getName());
+		}
 		
 		if(nodes != null){
 			
 			modelMap.put("success", true);
-			modelMap.put("list", nodes);
+			modelMap.put("list", res);
 			
 		}else{
 			
