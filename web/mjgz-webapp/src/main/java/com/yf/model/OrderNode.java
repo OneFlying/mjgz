@@ -21,6 +21,18 @@ public class OrderNode {
 	/**当前节点状态*/
 	private int status;
 	
+	/**流程节点结束*/
+	private String endtime;
+	
+	@Column(name="endtime")
+	public String getEndtime() {
+		return endtime;
+	}
+
+	public void setEndtime(String endtime) {
+		this.endtime = endtime;
+	}
+
 	@Column(name="status")
 	public int getStatus() {
 		return status;
