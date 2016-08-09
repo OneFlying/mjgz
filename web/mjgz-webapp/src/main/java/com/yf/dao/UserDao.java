@@ -151,5 +151,25 @@ public class UserDao extends DaoAdapter{
 		}
 	}
 	
+	/**
+	 * 根据用户名和密码获取信息
+	 * @param user
+	 * @return
+	 */
+	public User loginUser(User user){
+		
+		try {
+			
+			String sql = "select * from user where name=? and passwd=?";
+			
+			return super.getJdbcTemplate().queryForObject(sql, userRowMapper,user.getName(),user.getPasswd());
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+		
+	}
+	
 	
 }
