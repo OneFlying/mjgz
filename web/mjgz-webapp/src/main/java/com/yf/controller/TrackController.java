@@ -227,4 +227,27 @@ public class TrackController {
 		}
 		return modelMap;
 	}
+	
+	/**
+	 * 根据订单id获取追踪信息
+	 * @param orderId
+	 * @return
+	 */
+	@RequestMapping(value="/getall/byorderId",method=RequestMethod.GET)
+	@ResponseBody
+	public ModelMap getTracksByOrderId(String orderId){
+		
+		ModelMap modelMap = new ModelMap();
+		
+		List<Track> list = trackDao.getTracksByOrderId(orderId);
+		
+		if(list != null){
+			modelMap.put("success", true);
+			modelMap.put("list", list);
+		}else{
+			modelMap.put("success", false);
+		}
+		
+		return modelMap;
+	}
 }
