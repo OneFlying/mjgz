@@ -22,6 +22,18 @@ public class User {
 	
 	/**用户职务*/
 	private String duty;
+	
+	/**密码*/
+	private String passwd;
+
+	@Column(name="passwd")
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
 
 	@Column(name="id")
 	public String getId() {
