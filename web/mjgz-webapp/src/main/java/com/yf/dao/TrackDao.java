@@ -119,4 +119,26 @@ public class TrackDao extends DaoAdapter{
 		}
 	}
 	
+	/**
+	 * 判断用户是否已经扫描过改节点
+	 * @param workName
+	 * @param node
+	 * @param code
+	 * @return
+	 */
+	public Track workNameIsExist(String node,String code){
+		
+		try {
+			
+			String sql = "select * from track where node=? and code=?";
+			
+			return super.getJdbcTemplate().queryForObject(sql, trackRowMapper,node,code);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		} 
+		
+	}
+	
 }

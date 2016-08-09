@@ -37,9 +37,9 @@ public class OrderNodeDao extends DaoAdapter{
 		
 		try {
 			
-			String sql = "insert into node values(?,?,?,?,?)";
+			String sql = "insert into node values(?,?,?,?,?,?)";
 			
-			return super.getJdbcTemplate().update(sql,orderNode.getNodeName(),orderNode.getOrderId(),orderNode.getStarttime(),orderNode.getOvertime(),orderNode.getStatus());
+			return super.getJdbcTemplate().update(sql,orderNode.getNodeName(),orderNode.getOrderId(),orderNode.getStarttime(),orderNode.getOvertime(),orderNode.getStatus(),orderNode.getEndtime());
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -89,10 +89,33 @@ public class OrderNodeDao extends DaoAdapter{
 	
 	public void updateOrderNode(OrderNode orderNode){
 		
-		String sql = "update node set orderId = ?,starttime=?,overtime=?,status=? where nodeName=?";
+		String sql = "update node set starttime=?,overtime=?,status=?,endtime=? where nodeName=? and orderId = ?";
 		
-		super.getJdbcTemplate().update(sql,orderNode.getOrderId(),orderNode.getStarttime(),orderNode.getOvertime(),orderNode.getStatus(),orderNode.getNodeName());
+		super.getJdbcTemplate().update(sql,orderNode.getStarttime(),orderNode.getOvertime(),orderNode.getStatus(),orderNode.getEndtime(),orderNode.getNodeName(),orderNode.getOrderId());
 		
 	}
+	
+	/**
+	 * 检测订单是否结束
+	 */
+//	public String checkOrderIsOver(String orderId){
+//		
+//		try {
+//			
+//			String sql = "SELECT"  
+//							+"CASE" 
+//								+"WHEN t1.res = t2.res THEN '1'"
+//								+"ELSE '0'"
+//							+"END res"
+//						+"FROM" 
+//							+"(SELECT count(*) res FROM node where orderId = ?) t1,"
+//							+"(SELECT count(*) res FROM node where (status = 2 OR status = 3) AND orderId = ?) t2";
+//			//return super.getJdbcTemplate().queryForObject(sql, String.class, orderId);
+//			
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			//return null;
+//		}
+//	}
 	
 }
