@@ -64,10 +64,10 @@ public class BarCodeUtil {
             //bean.setWideFactor(3);
             bean.doQuietZone(false);
              
-            String path = request.getSession().getServletContext().getRealPath("")+"\\barcodeimg";
+            String path = request.getSession().getServletContext().getRealPath("")+"/barcodeimg";
             respath = path+"\\"+content+".png";
             //Open output file
-            File outputFile = new File(path+content+".png");
+            File outputFile = new File(path,content+".png");
             OutputStream out = new FileOutputStream(outputFile);
             try {
                 //Set up the canvas provider for monochrome JPEG output 
