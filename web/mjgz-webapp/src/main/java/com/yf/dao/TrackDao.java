@@ -98,7 +98,7 @@ public class TrackDao extends DaoAdapter{
 			}
 			searchEntity.setTotal(total);
 			
-			return super.getJdbcTemplate().query(sql,trackRowMapper,searchEntity.getSearchValues());
+			return super.getJdbcTemplate().query(sql,trackRowMapper,searchEntity.getSearchValues().toArray());
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;

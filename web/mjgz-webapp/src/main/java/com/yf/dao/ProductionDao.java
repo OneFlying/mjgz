@@ -99,7 +99,7 @@ public class ProductionDao extends DaoAdapter{
 			}
 			searchEntity.setTotal(total);
 			
-			return super.getJdbcTemplate().query(sql,proRowMapper,searchEntity.getSearchValues());
+			return super.getJdbcTemplate().query(sql,proRowMapper,searchEntity.getSearchValues().toArray());
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;
