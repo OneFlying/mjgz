@@ -1,27 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-    <title>磨具跟踪</title>
+    <title>明皓模具生产跟踪系统</title>
     <%@ include file="/resource.jsp"%>
-    <script src="${RESOUCE_STATIC_URL}/lib/modernizr.js"></script>
-    <link rel="stylesheet" type="text/css" href="${RESOUCE_STATIC_URL}/lib/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="${RESOUCE_STATIC_URL}/css/style.css">
+    <script src="${RESOUCE_STATIC_URL}/lib/modernizr.custom.js"></script>
+    <link rel="stylesheet" href="${RESOUCE_STATIC_URL}/lib/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${RESOUCE_STATIC_URL}/lib/jquery-easyui-1.4.3/themes/bootstrap/easyui.css">
+    <link rel="stylesheet" href="${RESOUCE_STATIC_URL}/lib/jquery-easyui-1.4.3/themes/icon.css">
+    <link rel="stylesheet" href="${RESOUCE_STATIC_URL}/css/style.css">
+    <link rel="stylesheet" href="${RESOUCE_STATIC_URL}/css/jquery.steps.css">
+</head>
 <body>
     <div class="overlay">
         <div class="header">
             <div class="logo">
-                <a href="#">OneFlying Template V1.0</a>
+                <a href="javascript:;">明皓模具生产跟踪系统</a>
             </div>
             <div class="navbar">
                 <ul>
-                    <li><a href="#">2016年07月01日 19:20:59</a> </li>
-                    <li><a href="#"><i class="fa fa-envelope fa-fw"></i><i class="fa fa-caret-down"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i> </a> </li>
-                    <li><a href="#"><i class="fa fa-download fa-fw"></i><i class="fa fa-caret-down"></i> </a> </li>
-                    <li><a href="#"><i class="fa fa-question-circle fa-fw"></i><i class="fa fa-caret-down"></i> </a> </li>
+                    <li><a href="javascript:;" id="time">2016年07月01日 19:20:59</a> </li>
+                    <li><a href="javascript:;"><i class="fa fa-envelope fa-fw"></i><i class="fa fa-caret-down"></i></a> </li>
+                    <li><a href="javascript:;"><i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i> </a> </li>
+                    <li><a href="javascript:;"><i class="fa fa-download fa-fw"></i><i class="fa fa-caret-down"></i> </a> </li>
+                    <li><a href="javascript:;"><i class="fa fa-question-circle fa-fw"></i><i class="fa fa-caret-down"></i> </a> </li>
                 </ul>
             </div>
         </div>
@@ -29,136 +34,67 @@
             <div class="sidebar">
                 <div class="searchbar">
                     <input type="text" name="keywords" title="" placeholder="搜索..." />
-                    <span>
-                        <button><i class="fa fa-search fa-fw"></i> </button>
-                    </span>
+                    <span><button><i class="fa fa-search fa-fw"></i> </button></span>
                 </div>
                 <div class="sidemenu">
                     <ul>
-                        <li><a href="#"><i class="fa fa-dashboard fa-fw"></i>&nbsp;Dashboard</a></li>
-                        <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Charts</a> </li>
-                        <li><a href="#"><i class="fa fa-table fa-fw"></i>&nbsp;Tables</a> </li>
-                        <li><a href="#"><i class="fa fa-edit fa-fw"></i>&nbsp;Froms</a> </li>
-                        <li>
-                            <a href="#" class="active">
-                                <i class="fa fa-wrench fa-fw"></i>&nbsp;Wrench
-                                <span class="arrow">
-                                    <i class="fa fa-angle-left fa-fw"></i>
-                                </span>
-                            </a>
-                            <ul>
-                                <li><a href="#">Dashboard</a></li>
-                                <li><a href="#" class="active">Charts</a> </li>
-                                <li><a href="#">Tables</a> </li>
-                                <li><a href="#">Froms</a> </li>
-                            </ul>
-                        </li>
-                        <li><a href="#"><i class="fa fa-paper-plane-o"></i>&nbsp;Papers </a> </li>
+                        <li><a href="javascript:;" data-href="#pageOne" data-method="orderGrid_load" class="active"><i class="fa fa-calendar fa-fw"></i>&nbsp;订单管理</a> </li>
+                        <li><a href="javascript:;" data-href="#pageTwo" data-method="materialGrid_load"><i class="fa fa-archive fa-fw"></i>&nbsp;物料管理</a></li>
+                        <li><a href="javascript:;" data-href="#pageFour" data-method="userGrid_load"><i class="fa fa-user fa-fw"></i>&nbsp;用户管理</a> </li>
+                        <li><a href="javascript:;" data-href="#pageFive" data-method="nodeGrid_load"><i class="fa fa-diamond fa-fw"></i>&nbsp;流程节点 </a> </li>
                     </ul>
                 </div>
             </div>
             <div class="container">
-                <!-- TODO page 存放地址 -->
                 <div class="page" id="pageOne">
-                    <div class="page-header">
-                        <h1>在这里显示页面标题</h1>
-                    </div>
+                    <div class="page-header"><h1>订单管理</h1></div>
                     <div class="page-content">
-                        <div class="datagrid">
-                            <div class="datagrid-header">
-                                数据表格的标题
-                            </div>
-                            <div class="datagrid-content">
-                                <div class="datagrid-searchbar">
-                                    <span>条件一</span><input type="text" name="" title="">
-                                    <span>条件二</span><input type="text" name="" title="">
-                                    <span>条件三</span><input type="text" name="" title="">
-                                    <button>搜索</button>
-                                    <button>后退</button>
-                                </div>
-                                <div class="datagrid-items">
-                                    <div class="datagrid-item datagrid-title">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                    <div class="datagrid-item">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                    <div class="datagrid-item double">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                    <div class="datagrid-item">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                    <div class="datagrid-item double">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                    <div class="datagrid-item">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                    <div class="datagrid-item double">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                    <div class="datagrid-item">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                    <div class="datagrid-item double">
-                                        <span style="width: 15%">菜单一</span>
-                                        <span style="width: 30%">菜单二</span>
-                                        <span style="width: 15%">菜单三</span>
-                                        <span style="width: 10%">菜单四</span>
-                                        <span style="width: 20%">菜单五</span>
-                                        <span style="width: 10%">菜单六</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="datagrid-footer">
-                                <button name="lastPage">最后一页</button>
-                                <button name="nextPage">后一页</button>
-                                <button name="jumpPage">跳转</button>
-                                <input type="text" title="" name="pagenum" value="1" />
-                                <button name="prevPage">前一页</button>
-                                <button name="firstPage">首页</button>
-                            </div>
+                        <table id="orderGrid"></table>
+                    </div>
+                    <div id="orderGrid_toolbar" style="padding:5px;height:auto;display: none">
+                        <div style="margin-bottom:5px">
+                            <a href="javascript:;" class="btn btn-success" data-method="orderGrid_add"><i class="fa fa-plus fa-fw"></i>添加 </a>
+                            <a href="javascript:;" class="btn btn-warning" data-method="orderGrid_edit"><i class="fa fa-edit fa-fw"></i>修改 </a>
+                            <a href="javascript:;" class="btn btn-danger" data-method="orderGrid_del"><i class="fa fa-remove fa-fw"></i>删除 </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="pageTwo">
+                    <div class="page-header"><h1>物料管理</h1></div>
+                    <div class="page-content">
+                        <table id="materialGrid"></table>
+                    </div>
+                    <div id="materialGrid_toolbar" style="padding: 5px;height:auto">
+                        <div style="margin-bottom:5px">
+                            <a href="javascript:;" class="btn btn-success" data-method="materialGrid_add"><i class="fa fa-plus fa-fw"></i>添加 </a>
+                            <a href="javascript:;" class="btn btn-warning" data-method="materialGrid_edit"><i class="fa fa-edit fa-fw"></i>修改 </a>
+                            <a href="javascript:;" class="btn btn-danger" data-method="materialGrid_del"><i class="fa fa-remove fa-fw"></i>删除 </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="pageFour">
+                    <div class="page-header"><h1>用户管理</h1></div>
+                    <div class="page-content">
+                        <table id="userGrid"></table>
+                    </div>
+                    <div id="userGrid_toolbar" style="padding: 5px;height:auto">
+                        <div style="margin-bottom:5px">
+                            <a href="javascript:;" class="btn btn-success" data-method="userGrid_add"><i class="fa fa-plus fa-fw"></i>添加 </a>
+                            <a href="javascript:;" class="btn btn-warning" data-method="userGrid_edit"><i class="fa fa-edit fa-fw"></i>修改 </a>
+                            <a href="javascript:;" class="btn btn-danger" data-method="userGrid_del"><i class="fa fa-remove fa-fw"></i>删除 </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="pageFive">
+                    <div class="page-header"><h1>流程节点</h1></div>
+                    <div class="page-content">
+                        <table id="nodeGrid"></table>
+                    </div>
+                    <div id="nodeGrid_toolbar" style="padding: 5px;height:auto">
+                        <div style="margin-bottom:5px">
+                            <a href="javascript:;" class="btn btn-success" data-method="nodeGrid_add"><i class="fa fa-plus fa-fw"></i>添加 </a>
+                            <a href="javascript:;" class="btn btn-warning" data-method="nodeGrid_edit"><i class="fa fa-edit fa-fw"></i>修改 </a>
+                            <a href="javascript:;" class="btn btn-danger" data-method="nodeGrid_del"><i class="fa fa-remove fa-fw"></i>删除 </a>
                         </div>
                     </div>
                 </div>
@@ -168,6 +104,26 @@
             </div>
         </div>
     </div>
+    <div id="bigImg_window" class="easyui-window" title="图纸预览" style="width: 900px; height: 600px;" data-options="closed:true">
+        <div>
+            <img src="" alt="1" id="bigImg" />
+        </div>
+    </div>
+    <div id="bigCode_window" class="easyui-window" title="条形码预览" style="width: 600px; height: 400px;" data-options="closed:true">
+        <div style="text-align: center; padding-top: 100px;">
+            <img src="" alt="2" id="bigCode" style="border: 1px solid #f5f5f5;" />
+        </div>
+    </div>
+    <%@include file="/popbox/user.jsp" %>
+    <%@include file="/popbox/node.jsp" %>
+    <%@include file="/popbox/material.jsp" %>
+    <%@include file="/popbox/order.jsp" %>
     <script src="${RESOUCE_STATIC_URL}/lib/jquery.min.js"></script>
+    <script src="${RESOUCE_STATIC_URL}/lib/jquery.steps.min.js"></script>
+    <script src="${RESOUCE_STATIC_URL}/lib/moment.min.js"></script>
+    <script src="${RESOUCE_STATIC_URL}/lib/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+    <script src="${RESOUCE_STATIC_URL}/lib/jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
+    <script src="${RESOUCE_STATIC_URL}/lib/datagrid-detailview.js"></script>
+    <script src="${RESOUCE_STATIC_URL}/js/plugins.js"></script>
 </body>
 </html>

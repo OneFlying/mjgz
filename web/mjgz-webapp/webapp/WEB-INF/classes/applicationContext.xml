@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:server="http://mina.apache.org/ftpserver/spring/v1"
 	xmlns:aop="http://www.springframework.org/schema/aop" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context" 
@@ -22,7 +23,9 @@
   						http://www.directwebremoting.org/schema/spring-dwr-annotations.xsd 
                         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
                         http://www.springframework.org/schema/task
-						http://www.springframework.org/schema/task/spring-task-3.1.xsd">
+						http://www.springframework.org/schema/task/spring-task-3.1.xsd 
+						http://mina.apache.org/ftpserver/spring/v1 
+						http://mina.apache.org/ftpserver/ftpserver-1.0.xsd">
   	
 	
   	<!-- 注解支持，扫描器 -->

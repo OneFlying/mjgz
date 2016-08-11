@@ -42,7 +42,7 @@
 	 <bean id="yfDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="url" value="jdbc:mysql://localhost:3306/mjgz?useUnicode=true&amp;characterEncoding=UTF-8"/>
 		<property name="username" value="root"/>
-		<property name="password" value="root"/>
+		<property name="password" value="facefly888"/>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 	</bean> 
 

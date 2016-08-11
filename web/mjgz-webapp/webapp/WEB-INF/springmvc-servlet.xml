@@ -32,6 +32,8 @@
 	</bean>
 	
 	<mvc:resources location="/static/" mapping="/static/**"  cache-period="604800" />
+	<mvc:resources mapping="/upload/**" location="/upload/" cache-period="604800" />
+	<mvc:resources mapping="/barcodeimg/**" location="/barcodeimg/" cache-period="604800" />
 
 	<mvc:annotation-driven/>
 </beans>
