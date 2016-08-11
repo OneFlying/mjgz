@@ -37,7 +37,6 @@ public class TrackController {
 	
 	/**
 	 * tianjia
-	 * @param user
 	 * @return
 	 */
 	@RequestMapping(value="/node/start",method=RequestMethod.POST)
@@ -243,7 +242,8 @@ public class TrackController {
 		
 		if(list != null){
 			modelMap.put("success", true);
-			modelMap.put("list", list);
+			modelMap.put("rows", list);
+			modelMap.put("total",list.size());
 		}else{
 			modelMap.put("success", false);
 		}

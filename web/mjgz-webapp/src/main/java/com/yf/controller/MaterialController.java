@@ -11,6 +11,7 @@ import java.util.Random;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,6 @@ public class MaterialController {
 	
 	/**
 	 * tianjia
-	 * @param user
 	 * @return
 	 */
 	@RequestMapping(value="/add",method=RequestMethod.POST)
@@ -133,6 +133,7 @@ public class MaterialController {
 		if(users != null){
 			modelMap.put("success", true);
 			modelMap.put("rows", users);
+			modelMap.put("total",searchEntity.getTotal());
 		}else{
 			modelMap.put("success", false);
 		}
@@ -143,7 +144,7 @@ public class MaterialController {
 	 * 图纸上传
 	 * @return
 	 */
-	@RequestMapping(value="/upload")
+	@RequestMapping(value="/upload",method = RequestMethod.POST)
 	@ResponseBody
 	public ModelMap uploadImg(HttpServletRequest request) throws Exception{
 		
@@ -180,7 +181,7 @@ public class MaterialController {
 		String realPath = path+"/upload/"+fileName+suffix;
 		
 		//url访问的路径
-		String urlPath = "/upload/"+fileName+suffix;
+		String urlPath = fileName+suffix;
 		
 		OutputStream out = new FileOutputStream(new File(realPath));
 		

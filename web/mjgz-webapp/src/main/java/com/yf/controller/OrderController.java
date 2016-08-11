@@ -34,7 +34,6 @@ public class OrderController {
 	
 	/**
 	 * tianjia
-	 * @param user
 	 * @return
 	 * 前端需要序列化节点字符串JSON.stringfy()
 	 */
